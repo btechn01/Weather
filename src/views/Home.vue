@@ -1,24 +1,18 @@
 <template>
-  <div class="home">
-    <v-layout wrap>
-      <template v-for="item in items">
-        <v-flex xs12 sm6 md3 lg2 :key="item.woeid" px-1>
-          <Weather :item="item"/>
-        </v-flex>
-      </template>
-    </v-layout>
-  </div>
+  <v-main>
+    <ListOfWeather :items="items"/>
+  </v-main>
 </template>
 
 <script>
 // @ is an alias to /src
-import Weather from "@/components/Weather";
 import {WeatherMethods} from "@/mixins/WeatherMixins";
+import ListOfWeather from "@/components/ListOfWeather";
 
 export default {
   name: 'Home',
   components: {
-    Weather
+    ListOfWeather
   },
   mixins: [WeatherMethods],
   data: () => ({
